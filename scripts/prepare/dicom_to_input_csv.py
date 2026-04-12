@@ -24,6 +24,7 @@ import os
 import subprocess
 import sys
 import glob
+from typing import Optional
 
 import pandas as pd
 
@@ -32,7 +33,7 @@ import pandas as pd
 # Helpers
 # ---------------------------------------------------------------------------
 
-def find_dicom_folder(adni_dir: str, subject: str, image_id: str) -> str | None:
+def find_dicom_folder(adni_dir: str, subject: str, image_id: str) -> Optional[str]:
     """
     Locate the DICOM folder for a given subject and image ID.
 
@@ -50,7 +51,7 @@ def find_dicom_folder(adni_dir: str, subject: str, image_id: str) -> str | None:
     return None
 
 
-def convert_dicom_to_nifti(dicom_folder: str, output_dir: str, image_id: str) -> str | None:
+def convert_dicom_to_nifti(dicom_folder: str, output_dir: str, image_id: str) -> Optional[str]:
     """
     Run dcm2niix on a DICOM folder. Returns the path of the produced .nii.gz file,
     or None if conversion fails.
