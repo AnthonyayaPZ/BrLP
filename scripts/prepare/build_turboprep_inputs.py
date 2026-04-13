@@ -30,7 +30,7 @@ Usage:
 import argparse
 import glob
 import os
-import sys
+from typing import Optional
 
 import pandas as pd
 
@@ -39,7 +39,7 @@ import pandas as pd
 # Helpers
 # ---------------------------------------------------------------------------
 
-def find_nifti(subject_dir: str, image_id: str) -> str | None:
+def find_nifti(subject_dir: str, image_id: str) -> Optional[str]:
     """
     Return the first *.nii.gz file found in {subject_dir}/{image_id}/.
     Falls back to *.nii if no .nii.gz exists.
